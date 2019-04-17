@@ -1,0 +1,88 @@
+import java.util.Random
+import java.util.Scanner
+
+package TrabalhoPOO1704
+
+public class PedraPapelTesoura {
+	public static void main (String [] args){
+		
+		// 1. Pedra | 2.Papel | 3.Tesoura
+		
+		// Abaixo, defini um cenário de todas as possibilidades de jogadas
+		// Levando em consideração que: 
+		// 1. Pedra:   Perde para 2.Papel   - Ganha de 3.Tesoura
+		// 2. Papel:   Perde para 3.Tesoura - Ganha de 2.Pedra
+		// 3. Tesoura: Perde para 1.Pedra   - Ganha de 2.Papel
+		
+		
+		// J(1) PC(2) = -1, vencedor Jogador
+		// J(1) PC(3) = -2, vencedor PC
+		// J(2) PC(1) = 1,  vencedor PC
+		// J(2) PC(3) = -1, vencedor Jogador
+		// j(3) PC(1) = 2,  vencedor Jogador
+		// J(3) PC(2) = 1,  vencedor pC
+		
+		
+		// O programa vai pedir ao usuário ecolher entre 3 opções de jogada
+		System.out.println("Ecolha uma opção:");
+		System.out.println("")
+		System.out.println("[1] Pedra")
+		System.out.println("[2] Papel")
+		System.out.println("[2] Tesoura")
+		Scanner leitor = new Scanner(System.in);
+		// comando random para definir a opção do pc
+		Random gerador = new Random ();
+		int numJogador;
+		int pcChoice;
+		int pontosJogador =0;
+		int pontosPC =0;
+		
+		// contador de 5 partidar de Pedra, papel ou tesoura
+		for(int i = 0; i < 5; I+++) {
+		numJogador = leitor.nextInt()
+		pcChoice = gerador.nextInt(3) + 1; //Gera um número entre 1 e 3
+		
+		
+			//Imprime a "escolha" do PC, já que está ligada com o método random
+			switch(pcChoice){
+				case 1: 
+					System.out.println("Computador escolheu pedra");
+					break;
+				case 2:
+					System.out.println("Computador escolheu papel");
+					break;
+				case 3:
+					System.out.println("Computador escolheu teasoura");
+					break;
+			}
+		
+		
+			//Verifica resultado
+			// Depende das possibilidades definidas no cenário, no começo do programa
+			if(numJogador == pcChoice){
+				System.out.println("Empate");
+			}
+			else if(numJogador - pcChoice) == -1 ||
+				(numJogador - pcChoice) == 2) {
+				System.out.println("Jogador ganhou a partida!")
+				pontosJogador++; 
+				// mesma coisa que pontosJogador = pontosJogador +1;
+				// acumulador de pontos do jogador de cada partida
+			}
+			else {
+				System.out.println("PC ganhou a partida!")
+				pontosPC++;
+				//acumulador de pontos do PC
+			}
+		}
+		// Totalização dos pontos do jogo
+		if(pontosJogador > pontosPC){
+			System.out.println("Jogador ganhou o jogo!");
+		}
+		else if (pontosJogador < pontosPC){
+			System.out.println("PC ganhou o jogo!");
+		}
+		else {
+			System.out.println("Empate!");
+	}
+}
